@@ -9,6 +9,6 @@ class MagicController extends Controller
 {
     public function test()
     {
-      return "facadez.";
+      return "facadez...";
     }
 }

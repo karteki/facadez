@@ -25,8 +25,20 @@ class MagicServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['magic'] = $this->app->share(function($app){
-            return new Magic;
-        });
+      $this->registerMagic();
     }
+    /**
+     * Register the application bindings.
+     *
+     * @return void
+     */
+    private function registerMagic()
+    {
+        $this->app->bind('Magic', function ($app) {
+            return new Magic($app);
+        });
+
+        // $this->app->alias('magic', 'facadez\magic');
+    }
+
 }
